@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object xmlns="http://n2oapp.net/framework/config/schema/object-4.0">
+    <operations>
+        <operation id="check" success-text="Проверка пройдена">
+            <invocation>
+                <sql>SELECT id FROM users WHERE username = :username AND password = :password;</sql>
+            </invocation>
+            <in>
+                <field id="username"/>
+                <field id="password"/>
+            </in>
+            <out>
+                <field id="checkData" domain="boolean" mapping="[0]"/>
+            </out>
+        </operation>
+        <operation id="create" success-text="Пользователь добавлен">
+            <invocation>
+                <sql>INSERT INTO users (id, username, password) VALUES (null, :username, :password);</sql>
+            </invocation>
+            <in>
+                <field id="username"/>
+                <field id="password"/>
+            </in>
+        </operation>
+
+        <operation id="update" success-text="Данные об автомобиле изменены">
+            <invocation>
+                <sql>UPDATE users SET password = :password WHERE username = :username</sql>
+            </invocation>
+            <in>
+                <field id="username"/>
+                <field id="password"/>
+            </in>
+        </operation>
+    </operations>
+</object>

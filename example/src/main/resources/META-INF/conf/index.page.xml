@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<simple-page xmlns="http://n2oapp.net/framework/config/schema/page-4.0"
+             name="Вход">
+    <form>
+        <fields>
+            <row>
+                <input-text id="username" domain="string" label="Введите имя пользователя"/>
+                <password id="password" domain="string" label="Введите пароль"/>
+                <input-text id="checkData" domain="boolean" enabled="false" visible="false"/>
+            </row>
+        </fields>
+
+        <toolbar>
+            <button id="submit" label="Войти">
+                <dependencies>
+                    <enabling message="Логин или пароль не верны">
+                        checkData
+                    </enabling>
+                </dependencies>
+                <open-page page-id="profile"/>
+            </button>
+            <button id="check" label="Проверить данные для входа">
+                <invoke object-id="user" operation-id="check"/>
+            </button>
+            <button id="create" label="Зарегистрироваться" enabled="true">
+                <show-modal page-id="registration"/>
+                <refresh/>
+            </button>
+            <button id="update" label="Изменить пароль" enabled="true">
+                <show-modal page-id="passwordchange"/>
+                <refresh/>
+            </button>
+        </toolbar>
+    </form>
+</simple-page>

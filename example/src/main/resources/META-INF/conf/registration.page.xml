@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<simple-page xmlns="http://n2oapp.net/framework/config/schema/page-4.0" name="Регистрация">
+    <form>
+        <fields>
+            <input-text id="username" domain="string" label="Введите имя пользователя"/>
+            <password id="password" domain="string" label="Введите пароль"/>
+        </fields>
+        <toolbar>
+            <button label="Зарегистрироваться">
+                <invoke object-id="user" operation-id="create" close-on-success="true"/>
+            </button>
+        </toolbar>
+    </form>
+</simple-page>

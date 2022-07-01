@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object xmlns="http://n2oapp.net/framework/config/schema/object-4.0"
+        name="Фраза">
+    <operations>
+        <operation id="create" success-text="Фраза и перевод добавлены">
+            <invocation>
+                <sql>INSERT INTO dictionary (id, phrase, translation) VALUES (null, :phrase, :translation);</sql>
+            </invocation>
+            <in>
+                <field id="phrase"/>
+                <field id="translation"/>
+            </in>
+            <out>
+                <field id="id" mapping="[0]"/>
+            </out>
+        </operation>
+
+        <operation id="update" success-text="Данные о фразе изменены">
+            <invocation>
+                <sql>UPDATE dictionary SET phrase = :phrase, translation = :translation WHERE id = :id</sql>
+            </invocation>
+            <in>
+                <field id="id"/>
+                <field id="phrase"/>
+                <field id="translation"/>
+            </in>
+        </operation>
+
+        <operation id="delete" success-text="Фраза и перевод удалены">
+            <invocation>
+                <sql>DELETE FROM dictionary WHERE id = :id</sql>
+            </invocation>
+            <in>
+                <field id="id"/>
+            </in>
+        </operation>
+    </operations>
+</object>

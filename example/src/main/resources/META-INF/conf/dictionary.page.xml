@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<simple-page xmlns="http://n2oapp.net/framework/config/schema/page-3.0">
+    <form query-id="dictionary">
+        <fields>
+            <input-text id="phrase" domain="string" length="50"/>
+            <input-text id="translation" domain="string" length="50"/>
+        </fields>
+    </form>
+</simple-page>
